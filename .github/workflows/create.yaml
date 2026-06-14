@@ -1,0 +1,12 @@
+name: create-runner
+on:
+  workflow_dispatch
+jobs:
+  create-runner:
+    on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: list file
+        run: ls -l
