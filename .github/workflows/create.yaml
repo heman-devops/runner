@@ -3,7 +3,7 @@ on:
   workflow_dispatch
 jobs:
   create-runner:
-    on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
