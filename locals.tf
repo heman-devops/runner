@@ -6,5 +6,5 @@ locals {
         Terraform = "true"
     }
     common_name = "${var.project}-${var.environment}"
-    private_subnet_ids = split("," , data.aws_ssm_parameter.private_subnet_ids.value)
+    private_subnet_id = split("," , data.aws_ssm_parameter.private_subnet_ids.value)[0]
 }

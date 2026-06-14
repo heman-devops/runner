@@ -2,7 +2,7 @@ resource "aws_instance" "runner" {
     ami                     = local.ami_id
     instance_type           = "t3.small"
     vpc_security_group_ids  = [aws_security_group.main.id]
-    subnet_ids               = local.private_subnet_ids
+    subnet_id              = local.private_subnet_id
 
     root_block_device {
       volume_size = 50
