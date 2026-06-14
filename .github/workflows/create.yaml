@@ -6,7 +6,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: list file
         run: ls -l
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v5.1.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: terraform init
+        run: terraform init
+
+      - name: terraform plan
+        run: terraform plan
+
+      - name: terraform approve
+        run: terraform apply -auto-approve
