@@ -3,6 +3,7 @@ resource "aws_instance" "runner" {
     instance_type           = "t3.small"
     vpc_security_group_ids  = [aws_security_group.main.id]
     subnet_id              = local.private_subnet_id
+    associate_public_ip_address = true
     
 
     root_block_device {
